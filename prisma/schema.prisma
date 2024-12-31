@@ -1,20 +1,22 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
-
-// Note that some adapters may set a maximum length for the String type by default, please ensure your strings are long
-// enough when changing adapters.
-// See https://www.prisma.io/docs/orm/reference/prisma-schema-reference#string for more information
 datasource db {
-  provider = "sqlite"
-  url      = "file:dev.sqlite"
+  provider = "mongodb"
+  url      = "mongodb+srv://tungnk:tungnk@godfrey-app.nfzuz.mongodb.net/remix-table?retryWrites=true&w=majority"
+}
+
+model Customer {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  first_name    String?
+  last_name     String?
+  email         String
+  created_at    DateTime  @default(now())
 }
 
 model Session {
-  id            String    @id
+  oid           String    @id @default(auto()) @map("_id") @db.ObjectId
+  id            String    @unique
   shop          String
   state         String
   isOnline      Boolean   @default(false)
