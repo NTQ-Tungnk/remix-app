@@ -64,6 +64,7 @@ export default defineConfig({
     assetsInlineLimit: 0,
   },
   css: {
-    devSourcemap: true
+    devSourcemap: true,
+    postcss: './postcss.config.js',
   }
 }) satisfies UserConfig;
