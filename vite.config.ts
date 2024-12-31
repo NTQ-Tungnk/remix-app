@@ -63,4 +63,7 @@ export default defineConfig({
   build: {
     assetsInlineLimit: 0,
   },
+  css: {
+    devSourcemap: true
+  }
 }) satisfies UserConfig;
